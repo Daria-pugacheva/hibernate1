@@ -35,8 +35,8 @@ public class ProductDao {
     public void deleteById (Long id){
         try (Session session = sessionFactory.getCurrentSession()) {
             session.beginTransaction();
-           // session.delete(findById(id)); наверное. не вариант
-            //session.createQuery("delete from Product p where p.id=" + id); //просто запросом
+           // session.delete(findById(id)); наверное. не вариант?
+           // session.createQuery("delete from Product p where p.id=" + id,Product.class); //просто запросом пока не получилось
             Product product = session.get(Product.class,id);
             session.delete(product);
             session.getTransaction().commit();
@@ -59,8 +59,8 @@ public class ProductDao {
                 product1.setTitle(product.getTitle());
                 session.getTransaction().commit();
             }
-            System.out.println(findAll()); // временно для проверки
         }
+        System.out.println(findAll()); // временно для проверки
         return product; // не очень понимаю смысл возврата продукта в этом методе... Но там в методичке
     }
 

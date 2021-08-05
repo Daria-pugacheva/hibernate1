@@ -11,7 +11,14 @@ public class MainApp {
                 .buildSessionFactory();
 
         ProductDao productDao = new ProductDao(sessionFactory);
-        System.out.println(productDao.findAll());
+        Product newProductToAdd = new Product(7L,"Bread",70);
+        Product newProductToUpdate = new Product(1L,"IceCream",100);
+
+       // System.out.println(productDao.findAll());
+       // System.out.println(productDao.findById(2L));
+        //productDao.deleteById(2L);
+       // productDao.saveOrUpdate(newProductToAdd);
+        productDao.saveOrUpdate(newProductToUpdate);
 
     }
 }
