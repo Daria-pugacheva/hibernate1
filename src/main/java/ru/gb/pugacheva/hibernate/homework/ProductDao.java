@@ -36,7 +36,7 @@ public class ProductDao {
         try (Session session = sessionFactory.getCurrentSession()) {
             session.beginTransaction();
            // session.delete(findById(id)); наверное. не вариант?
-           // session.createQuery("delete from Product p where p.id=" + id,Product.class); //просто запросом пока не получилось
+            // session.createQuery("delete from Product p where p.id=" + id,Product.class); //просто запросом пока не получилось
             Product product = session.get(Product.class,id);
             session.delete(product);
             session.getTransaction().commit();
